@@ -16,6 +16,9 @@ YOUR_GROUP.user=your_user_name
 YOUR_GROUP.token=xoxp-289999999915-12UUYYYYYY9-6XXXXXXXX-999999999999
 ```
  * run vavi-apps-slack
+ ```shell
+ $gradle run -Pargs="YOUR_GROUP"
+ ```
  * get messages
 ```shell
 $tree tmp
