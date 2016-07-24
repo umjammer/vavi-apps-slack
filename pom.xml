@@ -45,7 +45,15 @@
       <groupId>vavi</groupId>
       <artifactId>vavi-commons</artifactId>
       <version>1.0.5</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
+  <name>vavi-apps-slack</name>
+  <url>https://github.com/umjammer/vavi-apps-slack</url>
+  <scm>
+    <url>https://github.com/umjammer/vavi-apps-slack</url>
+  </scm>
+  <issueManagement>
+    <url>https://github.com/umjammer/vavi-apps-slack/issues</url>
+  </issueManagement>
+  <description>a Java application that can export Slack messages incremantally.</description>
 </project>
