@@ -1,3 +1,4 @@
+package vavi.apps.slack;
 /*
  * Copyright (c) 2016 by Naohide Sano, All rights reserved.
  *
