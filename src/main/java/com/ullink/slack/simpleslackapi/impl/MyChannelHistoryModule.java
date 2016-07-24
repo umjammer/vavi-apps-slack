@@ -118,7 +118,7 @@ public class MyChannelHistoryModule {
         if (rawReactions != null) {
             for (Object e : rawReactions.entrySet()) {
                 @SuppressWarnings("unchecked")
-                String emojiCode = ((Map.Entry<String, String>) e).getKey();
+                String emojiCode = ((Map.Entry<String, Long>) e).getKey();
                 @SuppressWarnings("unchecked")
                 Integer count = ((Map.Entry<String, Long>) e).getValue().intValue();
                 reacs.put(emojiCode, count);
