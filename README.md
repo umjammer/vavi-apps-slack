@@ -1,5 +1,5 @@
 # vavi-apps-slack
-vavi-apps-slack is a Java application that can export Slack messages incremantally.
+*vavi-apps-slack* is a Java application that can export Slack messages **incremantally**.
 
 ## Depends
  * [Simple Slack API](https://github.com/Ullink/simple-slack-api) (Creative Commons CC0 1.0 Universal)
@@ -10,18 +10,22 @@ vavi-apps-slack is a Java application that can export Slack messages incremantal
  * get a token from https://api.slack.com/web (push `Generate test tokens` button)
  * prepare a setting file
 ```shell
-$vi ~/.vavi_apps_slack.properties
+$ vi ~/.vavi_apps_slack.properties
 # your group name + keyword
 YOUR_GROUP.user=your_user_name
 YOUR_GROUP.token=xoxp-289999999915-12UUYYYYYY9-6XXXXXXXX-999999999999
 ```
+ * download vavi-apps-slack
+```shell
+$ git clone https://github.com/umjammer/vavi-apps-slack.git
+```
  * run vavi-apps-slack
 ```shell
-$./gradlew run -Pargs="YOUR_GROUP"
+$ ./gradlew run -Pargs="YOUR_GROUP"
 ```
  * get messages
 ```shell
-$tree tmp
+$ tree tmp
 tmp
 └── YOUR_GROUP
     ├── channel
