@@ -16,6 +16,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.ullink.slack.simpleslackapi.SlackChannel;
 import com.ullink.slack.simpleslackapi.SlackMessageHandle;
 import com.ullink.slack.simpleslackapi.SlackSession;
@@ -98,7 +100,7 @@ public class MyChannelHistoryModule {
                     JSONObject obj = (JSONObject) event; 
                     String ts = (String) obj.get("timestamp");
                     String text = (String) obj.get("messageContent");
-                    String userId = (String) ((JSONObject) obj.get("user")).get("id");
+                    String userId = (String) obj.get("user");
                     SlackUser user = session.findUserById(userId);
                     Map<String, Integer> reacs = extractReactionsFromMessageJSON(obj);
                     SlackMessagePostedImpl message = new SlackMessagePostedImpl(text, null, user, channel, ts);
@@ -125,6 +127,10 @@ public class MyChannelHistoryModule {
             }
         }
         return reacs;
+    }
+
+    public static Gson getGson() {
+        return new GsonBuilder().registerTypeAdapter(SlackMessagePostedImpl.class, new SlackMessagePostedSerializer()).setPrettyPrinting().create();
     }
 }
 

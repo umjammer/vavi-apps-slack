@@ -1,9 +1,10 @@
-package vavi.apps.slack;
 /*
  * Copyright (c) 2016 by Naohide Sano, All rights reserved.
  *
  * Programmed by Naohide Sano
  */
+
+package vavi.apps.slack;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -87,11 +88,15 @@ public class Main {
     private static final String DEFAULT_DATA_ROOT_DIRECTORY = "tmp";
 
     /** */
+    private Gson gson = MyChannelHistoryModule.getGson();
+
+    /** */
     private void saveHistory(SlackSession session, SlackChannel channel, SlackUser user) throws UncheckedIOException {
         try {
-            Gson gson = new Gson();
             String directory = channel.isDirect() ? "direct" : (channel.getType().equals(SlackChannelType.PRIVATE_GROUP) ? "private" : "channel");
-            String filename = channel.isDirect() ? channel.getMembers().iterator().next().getRealName() : channel.getName();
+            SlackUser sender = channel.getMembers().iterator().next();
+            String realName = sender.getRealName();
+            String filename = channel.isDirect() ? realName == null || realName.isEmpty() ? sender.getUserName() : realName : channel.getName();
             Path path = Paths.get(DEFAULT_DATA_ROOT_DIRECTORY + separator + group + separator + directory + separator + filename + ".json");
             System.err.println("path: " + Files.exists(path) + ": " + path);
 
@@ -112,6 +117,7 @@ public class Main {
                 if (pasts != null) {
                     messages.addAll(pasts);
                 }
+                System.err.println("--- TOTAL: " + messages.size());
                 String json = gson.toJson(messages);
                 if (!Files.exists(path.getParent())) {
                     Files.createDirectories(path.getParent());
@@ -145,7 +151,6 @@ public class Main {
                 result.addAll(messages);
             }
         } while (messages.size() > 0);
-        System.err.println("--- TOTAL: " + result.size());
         return result;
     }
 
