@@ -53,13 +53,21 @@ public class Main {
     private String group;
 
     /**
-     * @param args
+     * @param args 0: group name
+     * @see "~/.vavi_apps_slack.properties"
      */
-    public static void main(String[] args) throws Exception {
-        Main app = new Main();
-        app.group = args[0];
-        PropsEntity.Util.bind(app, app.group);
-        app.proceed();
+    public static void main(String[] args) {
+        try {
+            Main app = new Main();
+            app.group = args[0];
+            PropsEntity.Util.bind(app, app.group);
+            app.proceed();
+
+            System.exit(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
     }
 
     /** */
@@ -77,8 +85,6 @@ public class Main {
         channels.stream()
             .filter(channel -> channel.isDirect())
             .forEach(channel -> saveHistory(session, channel, user));
-
-        System.exit(0);
     }
 
     /** */

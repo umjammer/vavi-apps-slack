@@ -21,6 +21,7 @@ $ git clone https://github.com/umjammer/vavi-apps-slack.git
 ```
  * run vavi-apps-slack
 ```shell
+$ cd vavi-apps-slack
 $ ./gradlew run -Pargs="YOUR_GROUP"
 ```
  * get messages
