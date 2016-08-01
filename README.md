@@ -1,5 +1,8 @@
 # vavi-apps-slack
-*vavi-apps-slack* is a Java application that can export Slack messages **incremantally**.
+*vavi-apps-slack* is a Java application that can export Slack messages **incrementally**.
+
+we can find some Slack exporters, but those exports whole messages and channels everytime. 
+this application is useful for daily backup.
 
 ## Depends
  * [Simple Slack API](https://github.com/Ullink/simple-slack-api) (Creative Commons CC0 1.0 Universal)
