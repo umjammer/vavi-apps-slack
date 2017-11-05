@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Slack Log Viewer</title>
+    <style>
+    table { width: 80%; }
+    </style>
+  </head>
+  <body>
+    <h1>{{group}}/{{category}}/{{log}}</h1>
+
+    <table>
+    {{#messages}}
+      <tr>
+        <td>{{timestamp}}</td><td>{{user}}</td><td>{{messageContent}}</td>
+      </tr>
+    {{/messages}}
+    </table>
+
+  </body>
+</html>
