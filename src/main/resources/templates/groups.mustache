@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Slack Log Viewer</title>
+  </head>
+  <body>
+    <h1>Groups</h1>
+
+    <ul>
+    {{#groups}}
+      <li><a href="/categories/{{.}}">{{.}}</a></li>
+    {{/groups}}
+    </ul>
+
+  </body>
+</html>

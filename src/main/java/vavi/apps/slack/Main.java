@@ -102,6 +102,9 @@ public class Main {
             String directory = channel.isDirect() ? "direct" : (channel.getType().equals(SlackChannelType.PRIVATE_GROUP) ? "private" : "channel");
             SlackUser sender = channel.getMembers().iterator().next();
             String realName = sender.getRealName();
+            if (realName != null) {
+                realName = realName.replace(separator, "_");
+            }
             String filename = channel.isDirect() ? realName == null || realName.isEmpty() ? sender.getUserName() : realName : channel.getName();
             Path path = Paths.get(DEFAULT_DATA_ROOT_DIRECTORY + separator + group + separator + directory + separator + filename + ".json");
             System.err.println("path: " + Files.exists(path) + ": " + path);
