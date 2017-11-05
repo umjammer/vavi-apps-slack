@@ -44,23 +44,20 @@ tmp
         ├── mpdm-friend1--friend2--you-1.json
         └── mpdm-friend3--friend4--you--friend5-1.json
 ```
+ * view messages
+```shell
+$ pwd
+vavi-apps-slack
+$ ./gradlew execute
+:compileJava UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:execute
+welcome to slack viewer: 4567
+> Building 75% > :execute
+```
+access `http://localhost:4567/`
 
 ## License
 
-vavi-apps-slack is released under the [Apache 2.0 license](https://github.com/google/gson/blob/master/LICENSE).
-
-```
-Copyright 2016 Naohide Sano.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
+vavi-apps-slack is released under the [Apache 2.0 license](https://github.com/umjammer/vavi-apps-slack/blob/master/LICENSE).

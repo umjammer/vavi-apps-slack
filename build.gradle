@@ -3,7 +3,7 @@ apply plugin: 'maven'
 apply plugin: 'application'
 
 group = 'vavi'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2'
 
 description = """a Java application that can export Slack messages incremantally."""
 
